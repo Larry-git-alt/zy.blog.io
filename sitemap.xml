@@ -20,6 +20,15 @@
   </url>
   
   <url>
+    <loc>https://zy-blog-io-git-main-larry-git-alts-projects.vercel.app/personal/about/index.html</loc>
+    
+    <lastmod>2024-08-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zy-blog-io-git-main-larry-git-alts-projects.vercel.app/personal/love/index.html</loc>
     
     <lastmod>2024-08-06</lastmod>
@@ -39,15 +48,6 @@
   
   <url>
     <loc>https://zy-blog-io-git-main-larry-git-alts-projects.vercel.app/life/games/index.html</loc>
-    
-    <lastmod>2024-08-06</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zy-blog-io-git-main-larry-git-alts-projects.vercel.app/personal/about/index.html</loc>
     
     <lastmod>2024-08-06</lastmod>
     
