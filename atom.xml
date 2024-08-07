@@ -1,25 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Fomalhaut🥝</title>
+  <title>一天代码十万三🥝</title>
   
   
-  <link href="http://example.com/atom.xml" rel="self"/>
+  <link href="https://www.fomal.cc/atom.xml" rel="self"/>
   
-  <link href="http://example.com/"/>
-  <updated>2022-10-23T14:00:00.000Z</updated>
-  <id>http://example.com/</id>
+  <link href="https://www.fomal.cc/"/>
+  <updated>2024-10-23T14:00:00.000Z</updated>
+  <id>https://www.fomal.cc/</id>
   
   <author>
-    <name>Fomalhaut🥝</name>
+    <name>Larry🥝</name>
     
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>测试文章</title>
+    <link href="https://www.fomal.cc/posts/2013454d.html"/>
+    <id>https://www.fomal.cc/posts/2013454d.html</id>
+    <published>2024-08-09T10:19:03.000Z</published>
+    <updated>2024-10-23T14:00:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1>视频模块</h1><p>1.es根据视频 上传用户 标题 简介 上传名称  进行检索</p><p>2.新增视频到数据库-》异步更新到es</p><p>结构：</p><p>private Long id</p><p>视频名称<br>private String name;</p><p>视频文件所在地址</p><p>private String fileUrl;</p><p>视频封面文件地址</p><p>private String picture;</p><p>视频简介</p><p>privite String intro；</p><p>上传用户名称</p><p>privite String createBy；</p><p>上传时间</p><p>privite Date createTime；</p><p>状态: 审核中 已通过 已拒绝</p><p>privite Integer status</p>]]></content>
+    
+    
+    <summary type="html">🥧本文为测试</summary>
+    
+    
+    
+    <category term="演示" scheme="https://www.fomal.cc/categories/%E6%BC%94%E7%A4%BA/"/>
+    
+    
+    <category term="Markdown" scheme="https://www.fomal.cc/tags/Markdown/"/>
+    
+    <category term="技术" scheme="https://www.fomal.cc/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Markdown语法与外挂标签写法汇总</title>
-    <link href="http://example.com/2022/08/09/Markdown%E8%AF%AD%E6%B3%95%E4%B8%8E%E5%A4%96%E6%8C%82%E6%A0%87%E7%AD%BE%E5%86%99%E6%B3%95%E6%B1%87%E6%80%BB/"/>
-    <id>http://example.com/2022/08/09/Markdown%E8%AF%AD%E6%B3%95%E4%B8%8E%E5%A4%96%E6%8C%82%E6%A0%87%E7%AD%BE%E5%86%99%E6%B3%95%E6%B1%87%E6%80%BB/</id>
+    <link href="https://www.fomal.cc/posts/2013454d.html"/>
+    <id>https://www.fomal.cc/posts/2013454d.html</id>
     <published>2022-08-09T10:19:03.000Z</published>
     <updated>2022-10-23T14:00:00.000Z</updated>
     
@@ -30,12 +53,12 @@
     
     
     
-    <category term="演示" scheme="http://example.com/categories/%E6%BC%94%E7%A4%BA/"/>
+    <category term="演示" scheme="https://www.fomal.cc/categories/%E6%BC%94%E7%A4%BA/"/>
     
     
-    <category term="Markdown" scheme="http://example.com/tags/Markdown/"/>
+    <category term="Markdown" scheme="https://www.fomal.cc/tags/Markdown/"/>
     
-    <category term="外挂标签" scheme="http://example.com/tags/%E5%A4%96%E6%8C%82%E6%A0%87%E7%AD%BE/"/>
+    <category term="技术" scheme="https://www.fomal.cc/tags/%E6%8A%80%E6%9C%AF/"/>
     
   </entry>
   
