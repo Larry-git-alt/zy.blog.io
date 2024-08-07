@@ -3170,16 +3170,17 @@ let unsplash = "url(https://source.unsplash.com/random/1920x1080/)";
 
 
 // 更换背景(自己的代码)
-if (localStorage.getItem("blogbg") != undefined) {
-  setBg(localStorage.getItem("blogbg"));
-} else {
+// if (localStorage.getItem("blogbg") != undefined) {
+//   setBg(localStorage.getItem("blogbg"));
+// }
+// else {
   document.getElementById("defineBg").innerText = `:root{
-    --default-bg: url(https://lskypro.acozycotage.net/Fomalhaut/img/dm14.webp);
-    --darkmode-bg:url(https://lskypro.acozycotage.net/Fomalhaut/img/yuanshen1.webp);
+    --default-bg: url(https://th.bing.com/th/id/OIP.MyCFkjbD54CdB-mPLrfDfAHaEo?rs=1&pid=ImgDetMain);
+    --darkmode-bg:url(https://th.bing.com/th/id/OIP.MyCFkjbD54CdB-mPLrfDfAHaEo?rs=1&pid=ImgDetMain);
     --mobileday-bg: url(https://lskypro.acozycotage.net/Fomalhaut/img/snow.webp);
     --mobilenight-bg: url(https://lskypro.acozycotage.net/Fomalhaut/img/mb8.webp);
   }`;
-}
+//
 // 切换背景主函数
 function changeBg(s) {
   // 自定义颜色框
