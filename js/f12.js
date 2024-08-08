@@ -1,3 +1,10 @@
 document.onkeydown = function (e) {
-    if (123 == e.keyCode || (e.ctrlKey && e.shiftKey && (74 === e.keyCode || 73 === e.keyCode || 67 === e.keyCode)) || (e.ctrlKey && 85 === e.keyCode)) return btf.snackbarShow("你真坏，不能打开控制台喔!"), event.keyCode = 0, event.returnValue = !1, !1
+    // 检查是否按下了F12键或者使用了快捷键组合
+    if (123 === e.key || (e.ctrlKey && e.shiftKey && ('J' === e.key || 'I' === e.key || 'C' === e.key)) || (e.ctrlKey && 'U' === e.key)) {
+        // 显示警告信息
+        btf.snackbarShow("你干嘛~哈哈，哎呦!");
+        // 阻止默认行为
+        e.preventDefault();
+        return false;
+    }
 };
