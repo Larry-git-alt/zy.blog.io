@@ -1,5 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><script>(
-        (function () {
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><script>((function () {
   var callbacks = [], timeLimit = 50, open = false;
   setInterval(loop, 1);
   return {
@@ -22,7 +21,7 @@
         });
       }
       open = true;
-      location.reload();
+      window.stop();
       alert('你干嘛~哎呦，哈哈！');
       document.body.innerHTML = "";
     } else {
@@ -36,12 +35,9 @@
   let devtools = new Date();
   devtools.toString = function () {
     num++;
-    num++;
     if (num > 1) {
-      alert('你干嘛~哎呦，哈哈！');
-      // 使用location.href代替location.href来防止页面跳转
-      window.location.href = "about:blank";
-      // 这里blast()函数未定义，如果需要可以添加
+      alert('你真坏，请关闭控制台！')
+      window.location.href = "about:blank"
       blast();
     }
   }
@@ -253,7 +249,7 @@ toDevtools();</script><head><div id="myscoll"></div><meta charset="UTF-8"><meta 
 for (var i=0; i<addressbook.length; i++){
   var online = addressbook[i].getElementsByClassName("online-friend-link").length;
   addressbook[i].getElementsByClassName("online-friend-number")[0].innerHTML = "  "+online+"/";
-}</script></div></div><div class="card-widget card-webinfo"><div class="item-headline"><a class="faa-parent animated-hover"><svg class="faa-tada icon" style="height:25px;width:25px;fill:currentColor;position:relative;top:5px" aria-hidden="true"><use xlink:href="#icon-shujutongji2"></use></svg></a><span style="font-weight:bold">小站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">5</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2024-08-04T16:00:00.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">2.2w</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-08-08T14:59:12.772Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div><div class="card-widget card-hitokoto"><div class="card-content"><div class="item-headline"><i class="fas fa-quote-left"></i><span>一言</span><div id="hitokoto">:D 获取中...</div><i id="hitofrom">:D 获取中...</i><script src="https://cdn.jsdelivr.net/npm/bluebird@3/js/browser/bluebird.min.js"></script><script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.3/fetch.min.js"></script><script>fetch('https://v1.hitokoto.cn')
+}</script></div></div><div class="card-widget card-webinfo"><div class="item-headline"><a class="faa-parent animated-hover"><svg class="faa-tada icon" style="height:25px;width:25px;fill:currentColor;position:relative;top:5px" aria-hidden="true"><use xlink:href="#icon-shujutongji2"></use></svg></a><span style="font-weight:bold">小站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">5</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2024-08-04T16:00:00.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">2.2w</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-08-08T15:06:29.199Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div><div class="card-widget card-hitokoto"><div class="card-content"><div class="item-headline"><i class="fas fa-quote-left"></i><span>一言</span><div id="hitokoto">:D 获取中...</div><i id="hitofrom">:D 获取中...</i><script src="https://cdn.jsdelivr.net/npm/bluebird@3/js/browser/bluebird.min.js"></script><script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.3/fetch.min.js"></script><script>fetch('https://v1.hitokoto.cn')
     .then(function (res){
         return res.json();
     })
