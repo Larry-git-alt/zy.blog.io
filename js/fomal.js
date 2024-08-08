@@ -332,8 +332,17 @@ function getWeibo() {
 /* 微博热搜 end */
 
 //----------------------------------------------------------------
+//禁用开发者工具F12
+document.oncontextmenu = function () { return false; };
+//禁用开发者工具F12
+document.onkeydown = function () {
+  if (window.event && window.event.keyCode == 123) {
+    event.keyCode = 0;
+    event.returnValue = false;
+    return false;
+  }
+};
 
-/* 禁用f12与按键防抖 start */
 // 防抖全局计时器
 let TT = null;    //time用来控制事件的触发
 // 防抖函数:fn->逻辑 time->防抖时间
