@@ -4,25 +4,26 @@
   
     
     <entry>
-      <title>视频上传</title>
-      <link href="/posts/2013454d.html"/>
-      <url>/posts/2013454d.html</url>
+      <title></title>
+      <link href="/posts/0.html"/>
+      <url>/posts/0.html</url>
       
-        <content type="html"><![CDATA[<h1 id="视频模块"><a class="markdownIt-Anchor" href="#视频模块"></a> 视频模块</h1><p>1.es根据视频 上传用户 标题 简介 上传名称  进行检索</p><p>2.新增视频到数据库-》异步更新到es</p><p>结构：</p><p>private Long id</p><p>视频名称<br />private String name;</p><p>视频文件所在地址</p><p>private String fileUrl;</p><p>视频封面文件地址</p><p>private String picture;</p><p>视频简介</p><p>privite String intro；</p><p>上传用户名称</p><p>privite String createBy；</p><p>上传时间</p><p>privite Date createTime；</p><p>状态: 审核中 已通过 已拒绝</p><p>privite Integer status</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 演示 </category>
-          
-      </categories>
+        <content type="html"><![CDATA[<h1 id="SpringBoot的自动配置"><a href="#SpringBoot的自动配置" class="headerlink" title="SpringBoot的自动配置"></a>SpringBoot的自动配置</h1><h4 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h4><p>自动配置（Auto-configuration）是指在应用程序启动时，根据一些默认规则和条件，自动配置应用程序的各种组件和功能。自动配置的目的是简化应用程序的配置过程，减少手动配置的工作量。自动配置可以根据应用程序所使用的框架、库或环境条件，自动配置相应的功能和组件。例如，在Spring Boot框架中，它提供了许多自动配置类，根据应用程序的依赖和配置情况，自动配置<a href="https://so.csdn.net/so/search?q=数据库连接池&amp;spm=1001.2101.3001.7020">数据库连接池</a>、Web服务器、日志记录等常见组件，使开发人员可以快速启动应用程序而无需手动配置这些组件。</p><h4 id="二、与自动装配的区别"><a href="#二、与自动装配的区别" class="headerlink" title="二、与自动装配的区别"></a>二、与自动装配的区别</h4><ul><li>自动装配（autowiring）和自动配置（auto-configuration）是两个在软件开发中经常使用的概念，它们在不同的层面上有所区别。</li><li>自动装配（Autowiring）是指在依赖注入（Dependency Injection）的过程中，根据一定的规则自动地将依赖注入到相应的组件中，而无需手动显式地指定依赖关系。自动装配的目的是减少开发人员的工作量，提高开发效率。它可以根据一些规则（如类型匹配、名称匹配等）自动找到需要注入的依赖，然后将其注入到相应的类或组件中。在Spring框架中，自动装配是通过使用 <code>@Autowired</code> 注解或其他装配注解来实现的。</li><li>简而言之，自动装配关注的是依赖注入过程中的自动化，它处理类与类之间的依赖关系；而自动配置关注的是应用程序整体的自动化配置，它负责配置和初始化应用程序的各个组件和功能。</li></ul><h4 id="三、原理"><a href="#三、原理" class="headerlink" title="三、原理"></a>三、原理</h4><p>Spring Boot自动配置的核心注解是 <code>@SpringBootApplication</code> ，是Spring Boot的启动类注解，该注解是一个复合注解。<br><img src="spring%E8%87%AA%E5%8A%A8%E8%A3%85%E9%85%8D.assets/7a47744feec2097ec57649ab6e07c7a3.png" alt="在这里插入图片描述"><br>Spring Boot的自动配置是通过条件化配置（Conditional Configuration）实现的。它基于条件判断来确定是否需要自动配置某个组件或功能，只有当满足特定条件时才会生效。下面是自动配置的一般原理：</p><ol><li><p>Starter依赖</p><p>Spring Boot中的各个模块通常使用Starter依赖作为入口点。Starter依赖是一组预定义的依赖项集合，它们引入了所需的库和依赖，以及必要的自动配置类。</p><blockquote><p><strong>如何理解Starter？</strong></p><p>starter就是定义了一个starter的Jar包，在这个Jar包中写入被<code>@Configuration</code>注解标注的配置类，配置类中定义了需要的Bean。然后在starter的<code>META-INF/spring.factories</code>文件中以key-value的形式写入这些配置类，其中有一个<code>key=EnableAutoConfiguration</code>，它对应的value值就是一个个以<code>AutoConfiguration</code>结尾命名的<code>×××AutoConfiguration</code>自动配置类。然后Spring Boot即可按照约定去加载配置类。</p></blockquote><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># Auto Configure</span><br><span class="line">org.springframework.boot.autoconfigure.EnableAutoConfiguration=\</span><br><span class="line">org.springframework.boot.autoconfigure.admin.SpringApplicationAdminJmxAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.aop.AopAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.amqp.RabbitAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.batch.BatchAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.cassandra.CassandraAutoConfiguration,\</span><br><span class="line">12345678</span><br></pre></td></tr></table></figure></li><li><p><strong>条件注解</strong><br>Spring Boot使用条件注解（Conditional Annotation）来标记自动配置类。这些条件注解基于某些条件判断是否要应用自动配置。例如，<code>@ConditionalOnClass</code> 表示只有在类路径中存在指定的类时，自动配置才会生效。</p></li><li><p><strong>自动配置类</strong><br>自动配置类是实现自动配置的核心。它们通常使用<code>@Configuration</code>注解进行标记，并且包含了一系列的<code>@Bean</code>方法，用于配置和初始化相应的组件。这些自动配置类会根据条件注解的判断，决定是否进行配置。</p></li><li><p><strong>自动配置启动</strong><br>当应用程序启动时，Spring Boot会自动扫描类路径上的自动配置类。根据条件注解的判断，Spring Boot会选择适合的自动配置类，并将其应用到应用程序中。</p></li></ol><blockquote><p>通过上述步骤，Spring Boot能够根据应用程序的依赖和环境条件，自动配置相应的组件和功能。这样，开发人员可以快速启动应用程序，并根据需要进行自定义配置，而无需手动配置每个组件。需要注意的是，自动配置并不是强制的，开发人员可以通过显式地配置来覆盖自动配置的行为。同时，Spring Boot还提供了属性配置（Properties Configuration）的机制，使开发人员可以通过配置文件或命令行参数来影响自动配置的行为。</p></blockquote><h4 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h4><p>所以spring boot在整个的启动过程中，其实就是在类路径的<code>META-INF/spring.factories</code>文件中找到<code>EnableAutoConfiguration</code>对应的所有的自动配置类，然后将所有自动配置类加载到spring容器中。所有自动配置类都是以<code>AutoConfiguration</code>结尾来命名的，而诸多的<code>xxxAutoConfiguration</code>其实就是Spring容器的<strong>JavaConfig</strong>形式，它的作用就是为Spring容器导入bean。</p><h3 id="五、应用"><a href="#五、应用" class="headerlink" title="五、应用"></a>五、应用</h3><p>AutoConfiguration配合Conditional Annotation可实现动态加载配置类，根据策略去注入不同的配置类</p>]]></content>
       
       
-        <tags>
-            
-            <tag> 技术 </tag>
-            
-        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/posts/0.html"/>
+      <url>/posts/0.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="线程池和mq选择"><a href="#线程池和mq选择" class="headerlink" title="线程池和mq选择"></a>线程池和mq选择</h1><h2 id="达到的共同效果"><a href="#达到的共同效果" class="headerlink" title="达到的共同效果"></a>达到的共同效果</h2><h3 id="削峰"><a href="#削峰" class="headerlink" title="削峰"></a>削峰</h3><p><img src="%E7%BA%BF%E7%A8%8B%E6%B1%A0%E5%92%8Cmq%E9%80%89%E6%8B%A9.assets/image-20240811150132237.png" alt="image-20240811150132237"></p><p>线程池通过线程阻塞队列实现，线程来到之后，不是直接去创建，而是放到阻塞队列中进行一个缓冲</p><p>mq通过基于broker对任务进行临时存储实现</p><h3 id="异步"><a href="#异步" class="headerlink" title="异步"></a>异步</h3><p>mq通过发布订阅模式，实现异步</p><p>线程池通过异步任务编排实现</p><h2 id="选型"><a href="#选型" class="headerlink" title="选型"></a>选型</h2><p>线程池使用相对简单，但不会持久化任务，一但服务器关机，会造成任务丢失，更加适合单体应用</p><p>mq需要额外维护中间件，但存在持久化策略，重试机制等，更为完善，消息消费的可靠性更高；更加适合分布式应用</p>]]></content>
+      
+      
       
     </entry>
     
@@ -46,6 +47,31 @@
         <tags>
             
             <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>动态线程池</title>
+      <link href="/posts/2013454d.html"/>
+      <url>/posts/2013454d.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="动态线程池"><a href="#动态线程池" class="headerlink" title="动态线程池"></a>动态线程池</h1><p><img src="%E5%8A%A8%E6%80%81%E7%BA%BF%E7%A8%8B%E6%B1%A0.assets/image-20240810115425127.png" alt="image-20240810115425127"></p><h2 id="线程池在业务中的实践"><a href="#线程池在业务中的实践" class="headerlink" title="线程池在业务中的实践"></a>线程池在业务中的实践</h2><h3 id="业务背景"><a href="#业务背景" class="headerlink" title="业务背景"></a>业务背景</h3><p>在当今的互联⽹业界，为了最⼤程度利⽤CPU的多核性能，并⾏运算的能⼒是不可或缺的。通过线程池管理线程获 取并发性是⼀个⾮常基础的操作，让我们来看两个典型的使⽤线程池获取并发性的场景。</p><h3 id="场景1："><a href="#场景1：" class="headerlink" title="场景1："></a>场景1：</h3><p>快速响应⽤户请求 描述：⽤户发起的实时请求，服务追求响应时间。⽐如说⽤户要查看⼀个商品的信息，那么我们需要将商品维度的 ⼀系列信息如商品的价格、优惠、库存、图⽚等等聚合起来，展示给⽤户。 分析：从⽤户体验⻆度看，这个结果响应的越快越好，如果⼀个⻚⾯半天都刷不出，⽤户可能就放弃查看这个商品 了。⽽⾯向⽤户的功能聚合通常⾮常复杂，伴随着调⽤与调⽤之间的级联、多级级联等情况，业务开发同学往往会 选择使⽤线程池这种简单的⽅式，将调⽤封装成任务并⾏的执⾏，缩短总体响应时间。另外，使⽤线程池也是有考 量的，这种场景最重要的就是获取最⼤的响应速度去满⾜⽤户，所以应该不设置队列去缓冲并发任务，调⾼ corePoolSize和maxPoolSize去尽可能创造多的线程快速执⾏任务。 </p><h3 id="场景2："><a href="#场景2：" class="headerlink" title="场景2："></a>场景2：</h3><p>快速处理批量任务 描述：离线的⼤量计算任务，需要快速执⾏。⽐如说，统计某个报表，需要计算出全国各个⻔店中有哪些商品有某 种属性，⽤于后续营销策略的分析，那么我们需要查询全国所有⻔店中的所有商品，并且记录具有某属性的商品， 然后快速⽣成报表。 分析：这种场景需要执⾏⼤量的任务，我们也会希望任务执⾏的越快越好。这种情况下，也应该使⽤多线程策略， 并⾏计算。但与响应速度优先的场景区别在于，这类场景任务量巨⼤，并不需要瞬时的完成，⽽是关注如何使⽤有 限的资源，尽可能在单位时间内处理更多的任务，也就是吞吐量优先的问题。所以应该设置队列去缓冲并发任务， 调整合适的corePoolSize去设置处理任务的线程数。在这⾥，设置的线程数过多可能还会引发线程上下⽂切换频繁 的问题，也会降低处理任务的速度，降低吞吐量</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 项目 </tag>
             
         </tags>
       
